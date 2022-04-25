@@ -2,7 +2,7 @@ import {fetchingTest,fetchTest} from '../redux/testsReducer/testsReducer';
 import {fetchingSingelTest,fetchSingelTest} from '../redux/testsReducer/singelTestReducer';
 import {addingTest,addTestDone} from '../redux/testsReducer/addTest';
 
-const BASE_URL = 'http://localhost:3000/api/v1';
+const BASE_URL = 'https://mustexamapi.herokuapp.com/api/v1';
 
 export const AddTestAction = (data,userToken) => async(dispatch) => {
     dispatch(addingTest());
