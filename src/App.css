@@ -42,4 +42,10 @@ table th + th { border-left:2px solid black; }
     border-top-left-radius: 15px;
 }
 
+.input_button {
+  background-color: white;
+  border: none !important;
+  border-color: white;
+}
+
 

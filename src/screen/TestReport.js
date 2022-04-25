@@ -5,6 +5,7 @@ import { Link,useNavigate } from 'react-router-dom';
 import {GetTestAction,deleteTestAction} from '../api/Test';
 import Spinner from 'react-bootstrap/Spinner';
 import NavBar from '../components/NavBar';
+import { FaPlus } from 'react-icons/fa';
 
 const  TestReport = () => {
   const dispatch = useDispatch()
@@ -29,7 +30,7 @@ const  TestReport = () => {
          <NavBar/>
       {tests.loading ? (<div className="centerText"><Spinner animation="border" /></div>) : (
         <div className = "container mt-5">
-      <Link className ="custom_button mb-4" to="/AddTest">New Test</Link>
+      <Link className ="custom_button mb-4" to="/AddTest"><FaPlus/> New Test</Link>
         <table className="table table-striped Fullborder">
           <thead className="table_header">
             <tr>

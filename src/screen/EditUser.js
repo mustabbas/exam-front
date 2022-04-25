@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import {UpdateUserAction,GetSingelUserAction} from '../api/User';
 import { useParams } from 'react-router';
 import NavBar from '../components/NavBar';
+import { FaArrowLeft,FaSave } from 'react-icons/fa';
 
 const  EditTest =() =>{
   const dispatch = useDispatch();
@@ -33,12 +34,12 @@ const  EditTest =() =>{
       <div className = "container mt-5">
      <form onSubmit={handleSubmit(onSubmit)}>
      <div className="d-flex mb-4">
-     <div className="form-group ">
-         <input onClick = {()=> {navigate('/user')}} value ="Back" type="submit" className="custom_button" />
-     </div>
-     <div className="form-group mx-3">
-         <input value ="Save" type="submit" className="custom_button" />
-     </div>
+     <a onClick = {()=> {navigate('/user')}} className="form-group custom_button">
+      <FaArrowLeft/> Back
+      </a>
+      <div className="form-group custom_button mx-3">
+          <FaSave/> <input value ="Save" type="submit" className="input_button" />
+      </div>
      </div>
      <div className="form-group row mb-4">
        <label className="col-sm-2 col-form-label">Name</label>

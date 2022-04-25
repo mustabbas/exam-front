@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom';
 import {UpdateTestAction,GetSingelTestAction} from '../api/Test';
 import { useParams } from 'react-router';
 import NavBar from '../components/NavBar';
+import { FaArrowLeft,FaSave,FaPlus } from 'react-icons/fa';
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const  EditTest =() =>{
   const dispatch = useDispatch();
@@ -67,11 +69,11 @@ const  EditTest =() =>{
           correct answer
          </label>
        </div>
-       <button className="col-sm-2" type="button" onClick={() => optionRemove(nestIndex)}>Delete</button>
+       <div className="col-sm-2"  onClick={() => optionRemove(nestIndex)}><RiDeleteBin6Line size ={30}/></div>
      </div>
     ))}
-     <div className="form-group mx-3">
-          <input type="button" onClick={() => optionAppend({ nameOption: "", correct: "" })} value ="option" className="custom_button" />
+     <div className="form-group mx-3 custom_button">
+     <FaPlus/>  <input type="button" onClick={() => optionAppend({ nameOption: "", correct: "" })} value ="option" className="input_button" />
       </div>
     </div>
     )
@@ -84,15 +86,15 @@ const  EditTest =() =>{
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className="d-flex justify-content-between mb-4">
       <div className ="d-flex"> 
-      <div className="form-group ">
-          <input type="button" onClick = {()=> {navigate('/test')}} value ="Back"  className="custom_button" />
+      <a onClick = {()=> {navigate('/test')}} className="form-group custom_button">
+      <FaArrowLeft/> Back
+      </a>
+      <div className="form-group mx-3 custom_button">
+        <FaSave/> <input value ="Save" type="submit" className="input_button" />
       </div>
-      <div className="form-group mx-3">
-          <input value ="Save" type="submit" className="custom_button" />
       </div>
-      </div>
-      <div className="form-group mx-3">
-          <input type="button"  onClick={() => questionAppend({ nameQuestion: "", descriptionQuestion: "" })} value ="Question"  className="custom_button" />
+      <div className="form-group mx-3 custom_button">
+      <FaPlus/> <input type="button"  onClick={() => questionAppend({ nameQuestion: "", descriptionQuestion: "" })} value ="Question"  className="input_button" />
       </div>
       </div>
       <div className="form-group row mb-4">
@@ -114,7 +116,7 @@ const  EditTest =() =>{
          <div className="col-sm-10">
          <input {...register(`question.${index}.nameQuestion`)} className="form-control" defaultValue = {item.nameQuestion} placeholder = {item.nameQuestion}/>
          </div>
-         <button className="col-sm-2" type="button" onClick={() => questionRemove(index)}>Delete</button>
+         <div className="col-sm-2"  onClick={() => questionRemove(index)}><RiDeleteBin6Line size ={30}/></div>
          </div>
          <div className="form-group mb-4">
          <textarea rows="4" cols="50" {...register(`question.${index}.descriptionQuestion`)} className="form-control" defaultValue = {item.descriptionQuestion} placeholder = {item.descriptionQuestion}/>
@@ -132,7 +134,7 @@ const  EditTest =() =>{
                correct answer
               </label>
             </div>
-            <button className="col-sm-2" type="button">Delete</button>
+            <div className="col-sm-2" ><RiDeleteBin6Line size ={30}/></div>
           </div>
         )) : null}
          <Option nestItem = {item}  nestIndex={index} />
