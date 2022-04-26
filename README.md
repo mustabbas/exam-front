@@ -8,7 +8,7 @@ This is a Front end project build using react js for Exam Application.
 - React js
 
 ## Live Demo
-https://mustexamfront.herokuapp.com/
+https://neon-platypus-45b4ed.netlify.app
 
 
 ## Backend End Repo
